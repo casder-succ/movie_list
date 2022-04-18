@@ -1,8 +1,17 @@
 import React from 'react';
 
-const Card = () => {
+const Card = (props) => {
+  const movie = {props};
   return (
-    <h1>Card #1</h1>
+    <div>
+      <h2>
+        {`#${movie.ranking}. ${movie.title}`}
+      </h2>
+      <img src={movie.img.src} alt={movie.img.alt}/>
+      <p>Distributor: {movie.distributor}</p>
+      <p>Amount: {movie.amount}</p>
+      <p>Year: {movie.year}</p>
+    </div>
   );
 };
 
