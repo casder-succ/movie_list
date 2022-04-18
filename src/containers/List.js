@@ -13,7 +13,7 @@ class List extends React.Component {
 
   async componentDidMount() {
     try {
-      const movies = await fetch('./../assets/data.json');
+      const movies = await fetch('./assets/data.json');
       const moviesJson = await movies.json();
       
       if (moviesJson) {
@@ -23,6 +23,7 @@ class List extends React.Component {
         });
       }
     } catch(error) {
+      console.error(error);
       this.setState({
         loading: false,
         isError: true,
