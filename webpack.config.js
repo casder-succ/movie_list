@@ -5,6 +5,11 @@ const htmlplugin = new HtmlWebpackPlugin({
 });
 
 module.exports = {
+  entry: './src/index',
+  output: {
+    path: __dirname + '/build',
+    publicPath: '/',
+  },
   module: {
     rules: [
       {
@@ -12,6 +17,12 @@ module.exports = {
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
+        },
+      },
+      {
+        test: /\.html$/,
+        use: {
+          loader: 'html-loader',
         },
       },
     ],
