@@ -31,10 +31,16 @@ class List extends React.Component {
   }
 
   render() {
+    const {data, loading, isError} = this.state;
+
+    if (isError) return <h1>Oh... there is some error :(</h1>;
+
+    if (loading) return <h1>Loading data...</h1>;
+
     return (
       <div>
-        <h1>Movie List</h1>
-        <Card />
+        <h1>Movies</h1>
+        {data.map((movie) => <Card key={movie.id} movie={movie} />)}
       </div>
     );
   }
